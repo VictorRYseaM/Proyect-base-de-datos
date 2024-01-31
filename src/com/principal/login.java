@@ -219,9 +219,9 @@ public class login extends javax.swing.JFrame {
             java.sql.Connection conexion = cn.conectar();
             Statement st = conexion.createStatement();
 
-            if (user.getText().isBlank()) {
+            if (user.getText().isBlank()||user.getText().equals("Correo")) {
                 JOptionPane.showMessageDialog(null, "El usuario es requerido", "Rellene el campo", JOptionPane.ERROR_MESSAGE);
-            } else if (usrpass.getText().isBlank()) {
+            } else if (usrpass.getText().isBlank()||usrpass.getText().equals("jPasswordField1")) {
                 JOptionPane.showMessageDialog(null, "La contraseña es requerida", "Rellene el campo", JOptionPane.ERROR_MESSAGE);
             } else {
                 String correo = user.getText();
