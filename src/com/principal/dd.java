@@ -30,6 +30,13 @@ public class dd extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    private String correo;
+
+    public void mostrarcorreo(String correo) {
+        this.correo = correo;
+        correolabel.setText("Sesion de: " + correo);
+    }
+
     private void ShowJpanel(JPanel pl) {
         pl.setSize(890, 560);
         pl.setLocation(0, 0);
@@ -50,6 +57,8 @@ public class dd extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        correolabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         medicobtn = new javax.swing.JButton();
         consultasbtn = new javax.swing.JButton();
@@ -62,11 +71,16 @@ public class dd extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
-        setMaximumSize(new java.awt.Dimension(1050, 600));
-        setMinimumSize(new java.awt.Dimension(1050, 600));
+        setMaximumSize(new java.awt.Dimension(1032, 595));
+        setMinimumSize(new java.awt.Dimension(1032, 595));
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1050, 600));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1050, 600));
@@ -75,24 +89,48 @@ public class dd extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(51, 204, 0));
 
-        jPanel4.setBackground(new java.awt.Color(51, 204, 0));
+        jPanel4.setBackground(new java.awt.Color(25, 117, 209));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("X");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
+        correolabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        correolabel.setForeground(new java.awt.Color(255, 255, 255));
+        correolabel.setText("asd");
+        correolabel.setToolTipText("");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1050, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(correolabel, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 784, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 39, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(correolabel, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1050, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -111,14 +149,13 @@ public class dd extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel3.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel3.setBackground(new java.awt.Color(5, 80, 155));
 
-        medicobtn.setBackground(new java.awt.Color(20, 48, 66));
-        medicobtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        medicobtn.setForeground(new java.awt.Color(204, 204, 204));
+        medicobtn.setBackground(new java.awt.Color(17, 111, 171));
+        medicobtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        medicobtn.setForeground(new java.awt.Color(255, 255, 255));
         medicobtn.setText("Médico");
-        medicobtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        medicobtn.setBorder(null);
         medicobtn.setBorderPainted(false);
         medicobtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         medicobtn.setIconTextGap(6);
@@ -128,11 +165,11 @@ public class dd extends javax.swing.JFrame {
             }
         });
 
-        consultasbtn.setBackground(new java.awt.Color(20, 48, 66));
-        consultasbtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        consultasbtn.setForeground(new java.awt.Color(204, 204, 204));
+        consultasbtn.setBackground(new java.awt.Color(17, 111, 171));
+        consultasbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        consultasbtn.setForeground(new java.awt.Color(255, 255, 255));
         consultasbtn.setText("Consultas");
-        consultasbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        consultasbtn.setBorder(null);
         consultasbtn.setBorderPainted(false);
         consultasbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultasbtn.setIconTextGap(6);
@@ -142,11 +179,11 @@ public class dd extends javax.swing.JFrame {
             }
         });
 
-        medicamentosbtn.setBackground(new java.awt.Color(20, 48, 66));
-        medicamentosbtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        medicamentosbtn.setForeground(new java.awt.Color(204, 204, 204));
+        medicamentosbtn.setBackground(new java.awt.Color(17, 111, 171));
+        medicamentosbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        medicamentosbtn.setForeground(new java.awt.Color(255, 255, 255));
         medicamentosbtn.setText("Medicamentos");
-        medicamentosbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        medicamentosbtn.setBorder(null);
         medicamentosbtn.setBorderPainted(false);
         medicamentosbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         medicamentosbtn.setIconTextGap(6);
@@ -156,9 +193,9 @@ public class dd extends javax.swing.JFrame {
             }
         });
 
-        pacientebtn.setBackground(new java.awt.Color(20, 48, 66));
-        pacientebtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        pacientebtn.setForeground(new java.awt.Color(204, 204, 204));
+        pacientebtn.setBackground(new java.awt.Color(17, 111, 171));
+        pacientebtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pacientebtn.setForeground(new java.awt.Color(255, 255, 255));
         pacientebtn.setText("Paciente");
         pacientebtn.setBorder(null);
         pacientebtn.setBorderPainted(false);
@@ -170,11 +207,11 @@ public class dd extends javax.swing.JFrame {
             }
         });
 
-        salirbtn.setBackground(new java.awt.Color(20, 48, 66));
-        salirbtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        salirbtn.setForeground(new java.awt.Color(204, 204, 204));
+        salirbtn.setBackground(new java.awt.Color(17, 111, 171));
+        salirbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        salirbtn.setForeground(new java.awt.Color(255, 255, 255));
         salirbtn.setText("Salir");
-        salirbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        salirbtn.setBorder(null);
         salirbtn.setBorderPainted(false);
         salirbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         salirbtn.setIconTextGap(6);
@@ -184,17 +221,18 @@ public class dd extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(0, 204, 0));
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(5, 80, 155));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MENÚ");
         jLabel1.setToolTipText("");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
 
-        pacientebtn1.setBackground(new java.awt.Color(20, 48, 66));
-        pacientebtn1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        pacientebtn1.setForeground(new java.awt.Color(204, 204, 204));
+        pacientebtn1.setBackground(new java.awt.Color(17, 111, 171));
+        pacientebtn1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pacientebtn1.setForeground(new java.awt.Color(255, 255, 255));
         pacientebtn1.setText("Historia médica");
         pacientebtn1.setBorder(null);
         pacientebtn1.setBorderPainted(false);
@@ -211,60 +249,65 @@ public class dd extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(medicobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(medicamentosbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(consultasbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(pacientebtn1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(salirbtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pacientebtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pacientebtn1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                    .addComponent(pacientebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medicobtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medicamentosbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(consultasbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(salirbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(99, 99, 99)
                 .addComponent(pacientebtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(pacientebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(medicobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(medicamentosbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(consultasbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                 .addComponent(salirbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 39, 160, 560));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 39, 160, 570));
 
         viewp.setBackground(new java.awt.Color(255, 255, 255));
+        viewp.setPreferredSize(new java.awt.Dimension(870, 550));
 
         javax.swing.GroupLayout viewpLayout = new javax.swing.GroupLayout(viewp);
         viewp.setLayout(viewpLayout);
         viewpLayout.setHorizontalGroup(
             viewpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 890, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         viewpLayout.setVerticalGroup(
             viewpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 560, Short.MAX_VALUE)
         );
 
-        jPanel1.add(viewp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 890, 560));
+        jPanel1.add(viewp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 880, 560));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1050, 600));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -310,6 +353,24 @@ public class dd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pacientebtn1ActionPerformed
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        for (double i = 0.0; i <= 1.0; i = i + 0.1) {
+            String val = i + "";
+            float f = Float.valueOf(val);
+            this.setOpacity(f);
+            try {
+                Thread.sleep(50);
+            } catch (Exception e) {
+
+            }
+        }
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -338,7 +399,9 @@ public class dd extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton consultasbtn;
+    private javax.swing.JLabel correolabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

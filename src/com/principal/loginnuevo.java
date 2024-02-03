@@ -309,6 +309,7 @@ public class loginnuevo extends javax.swing.JFrame {
                     contradb = rs.getString("clave");
                     if (contra.equals(contradb)) {
                         dd menu = new dd();
+                        menu.mostrarcorreo(correo);
                         menu.setVisible(true);
                         menu.pack();
                         menu.setLocationRelativeTo(null);
