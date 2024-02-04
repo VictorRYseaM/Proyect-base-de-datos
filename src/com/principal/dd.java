@@ -340,7 +340,7 @@ public class dd extends javax.swing.JFrame {
         if (op == 0) {
             JOptionPane.showMessageDialog(null, "Cerrando sesión..", "Sesión Cerrada", JOptionPane.INFORMATION_MESSAGE);
 
-            login loginframe = new login();
+            loginnuevo loginframe = new loginnuevo();
             loginframe.setVisible(true);
             loginframe.pack();
             loginframe.setLocationRelativeTo(null);
