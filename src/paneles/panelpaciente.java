@@ -130,7 +130,6 @@ public class panelpaciente extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(0, 255, 102));
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pacientes");
         jLabel1.setToolTipText("");
@@ -169,6 +168,9 @@ public class panelpaciente extends javax.swing.JPanel {
         fieldci.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldciKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldciKeyTyped(evt);
             }
         });
 
@@ -224,6 +226,11 @@ public class panelpaciente extends javax.swing.JPanel {
                 fieldapeActionPerformed(evt);
             }
         });
+        fieldape.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldapeKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Apellido:");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -261,6 +268,11 @@ public class panelpaciente extends javax.swing.JPanel {
         fieldgen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldgenActionPerformed(evt);
+            }
+        });
+        fieldgen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldgenKeyTyped(evt);
             }
         });
 
@@ -385,6 +397,11 @@ public class panelpaciente extends javax.swing.JPanel {
                 fieldnameActionPerformed(evt);
             }
         });
+        fieldname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldnameKeyTyped(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/user (1).png"))); // NOI18N
 
@@ -421,6 +438,11 @@ public class panelpaciente extends javax.swing.JPanel {
                 fieldtelActionPerformed(evt);
             }
         });
+        fieldtel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldtelKeyTyped(evt);
+            }
+        });
 
         jLabel14.setText("Teléfono:");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -455,7 +477,6 @@ public class panelpaciente extends javax.swing.JPanel {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/patient.png"))); // NOI18N
 
         jButton1.setBackground(new java.awt.Color(51, 255, 204));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Limpiar");
         jButton1.setBorder(null);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -466,7 +487,6 @@ public class panelpaciente extends javax.swing.JPanel {
         });
 
         regbtn.setBackground(new java.awt.Color(51, 255, 204));
-        regbtn.setForeground(new java.awt.Color(0, 0, 0));
         regbtn.setText("Registrar");
         regbtn.setBorder(null);
         regbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -611,6 +631,36 @@ public class panelpaciente extends javax.swing.JPanel {
         blank(fieldtel);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void fieldciKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldciKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_fieldciKeyTyped
+
+    private void fieldtelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldtelKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_fieldtelKeyTyped
+
+    private void fieldnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldnameKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+    }//GEN-LAST:event_fieldnameKeyTyped
+
+    private void fieldapeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldapeKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+    }//GEN-LAST:event_fieldapeKeyTyped
+
+    private void fieldgenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldgenKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+    }//GEN-LAST:event_fieldgenKeyTyped
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());

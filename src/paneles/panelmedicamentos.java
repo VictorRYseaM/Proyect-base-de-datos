@@ -75,7 +75,6 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jLabel17.setBackground(new java.awt.Color(0, 0, 0));
         jLabel17.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("ID:");
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/list.png"))); // NOI18N
@@ -117,7 +116,6 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jLabel7.setBackground(new java.awt.Color(51, 255, 204));
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("MANTENTE AL DÍA, NO PIERDAS TU CONTROL MÉDICO.");
         jLabel7.setOpaque(true);
@@ -125,9 +123,14 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 204));
 
+        idmedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idmedicamentoKeyTyped(evt);
+            }
+        });
+
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("ID:");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/list.png"))); // NOI18N
@@ -161,9 +164,14 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(51, 255, 204));
 
+        cedmedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cedmedicamentoKeyTyped(evt);
+            }
+        });
+
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Cédula:");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/driver-license.png"))); // NOI18N
@@ -197,9 +205,14 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(51, 255, 204));
 
+        medicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                medicamentoKeyTyped(evt);
+            }
+        });
+
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Medicamento:");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/medicine (1).png"))); // NOI18N
@@ -235,7 +248,6 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Dosificación:");
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/dosage.png"))); // NOI18N
@@ -271,7 +283,6 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Fecha inicio:");
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/calendar.png"))); // NOI18N
@@ -313,7 +324,6 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
         jLabel19.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Fecha final:");
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/calendar.png"))); // NOI18N
@@ -373,7 +383,6 @@ public class panelmedicamentos extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 130, 130));
 
         limpiarmedicamento.setBackground(new java.awt.Color(0, 255, 51));
-        limpiarmedicamento.setForeground(new java.awt.Color(0, 0, 0));
         limpiarmedicamento.setText("Limpiar");
         limpiarmedicamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,7 +392,6 @@ public class panelmedicamentos extends javax.swing.JPanel {
         add(limpiarmedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 260, 40));
 
         aceptarmedicamento.setBackground(new java.awt.Color(0, 255, 51));
-        aceptarmedicamento.setForeground(new java.awt.Color(0, 0, 0));
         aceptarmedicamento.setText("Aceptar");
         aceptarmedicamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,6 +462,28 @@ public class panelmedicamentos extends javax.swing.JPanel {
         
 
     }//GEN-LAST:event_limpiarmedicamentoActionPerformed
+
+    private void idmedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idmedicamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idmedicamentoActionPerformed
+
+    private void idmedicamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idmedicamentoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_idmedicamentoKeyTyped
+
+    private void cedmedicamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedmedicamentoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_cedmedicamentoKeyTyped
+
+    private void medicamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicamentoKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+    }//GEN-LAST:event_medicamentoKeyTyped
     private void blank(JTextField jtf) {
         jtf.setText("");
     }

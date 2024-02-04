@@ -156,7 +156,6 @@ public class panelmedico extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MÉDICO");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 870, 30));
@@ -168,7 +167,6 @@ public class panelmedico extends javax.swing.JPanel {
         jTextField5.setEditable(false);
         jTextField5.setBackground(new java.awt.Color(51, 204, 0));
         jTextField5.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("¡CUIDAMOS TU SALUD!");
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +181,6 @@ public class panelmedico extends javax.swing.JPanel {
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 110, 80));
 
         registrarmedico.setBackground(new java.awt.Color(51, 255, 204));
-        registrarmedico.setForeground(new java.awt.Color(0, 0, 0));
         registrarmedico.setText("Registrar ");
         registrarmedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,7 +190,6 @@ public class panelmedico extends javax.swing.JPanel {
         add(registrarmedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 150, 30));
 
         jButton2.setBackground(new java.awt.Color(51, 255, 204));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Limpiar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,13 +202,17 @@ public class panelmedico extends javax.swing.JPanel {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Teléfono:");
 
         telmedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telmedicoActionPerformed(evt);
+            }
+        });
+        telmedico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                telmedicoKeyTyped(evt);
             }
         });
 
@@ -252,13 +252,17 @@ public class panelmedico extends javax.swing.JPanel {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Nombre:");
 
         nombremedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombremedicoActionPerformed(evt);
+            }
+        });
+        nombremedico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombremedicoKeyTyped(evt);
             }
         });
 
@@ -296,13 +300,17 @@ public class panelmedico extends javax.swing.JPanel {
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("ID:");
 
         idmedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idmedicoActionPerformed(evt);
+            }
+        });
+        idmedico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idmedicoKeyTyped(evt);
             }
         });
 
@@ -342,13 +350,17 @@ public class panelmedico extends javax.swing.JPanel {
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Especialidad:");
 
         especialidadmedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 especialidadmedicoActionPerformed(evt);
+            }
+        });
+        especialidadmedico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                especialidadmedicoKeyTyped(evt);
             }
         });
 
@@ -459,6 +471,7 @@ public class panelmedico extends javax.swing.JPanel {
 
     private void especialidadmedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especialidadmedicoActionPerformed
         // TODO add your handling code here:
+     
     }//GEN-LAST:event_especialidadmedicoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -469,6 +482,31 @@ public class panelmedico extends javax.swing.JPanel {
         blank(nombremedico);
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void idmedicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idmedicoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+         
+    }//GEN-LAST:event_idmedicoKeyTyped
+
+    private void telmedicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telmedicoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_telmedicoKeyTyped
+
+    private void nombremedicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombremedicoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+    }//GEN-LAST:event_nombremedicoKeyTyped
+
+    private void especialidadmedicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_especialidadmedicoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+    }//GEN-LAST:event_especialidadmedicoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -142,6 +142,11 @@ public class loginnuevo extends javax.swing.JFrame {
                 txtusernameFocusLost(evt);
             }
         });
+        txtusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtusernameActionPerformed(evt);
+            }
+        });
         txtusername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtusernameKeyReleased(evt);
@@ -167,6 +172,11 @@ public class loginnuevo extends javax.swing.JFrame {
         txtpassword.setForeground(new java.awt.Color(255, 255, 255));
         txtpassword.setBorder(null);
         txtpassword.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpasswordActionPerformed(evt);
+            }
+        });
         jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 240, 30));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,7 +206,6 @@ public class loginnuevo extends javax.swing.JFrame {
         jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(199, 226, 255));
         jCheckBox1.setText("Remember Password");
-        jCheckBox1.setOpaque(false);
         jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 261, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -206,7 +215,6 @@ public class loginnuevo extends javax.swing.JFrame {
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 261, 121, 27));
 
-        btninisesion.setBackground(new java.awt.Color(255, 255, 255));
         btninisesion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btninisesion.setForeground(new java.awt.Color(25, 118, 211));
         btninisesion.setText("INICIAR SESIÓN");
@@ -341,6 +349,14 @@ public class loginnuevo extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_txtusernameKeyReleased
+
+    private void txtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtusernameActionPerformed
+
+    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpasswordActionPerformed
 
     /**
      * @param args the command line arguments

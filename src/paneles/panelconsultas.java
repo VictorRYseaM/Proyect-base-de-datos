@@ -109,6 +109,11 @@ public class panelconsultas extends javax.swing.JPanel {
                 nrconsultaActionPerformed(evt);
             }
         });
+        nrconsulta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nrconsultaKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -172,6 +177,12 @@ public class panelconsultas extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(0, 255, 102));
 
+        cedconsulta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cedconsultaKeyTyped(evt);
+            }
+        });
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/driver-license.png"))); // NOI18N
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -202,6 +213,12 @@ public class panelconsultas extends javax.swing.JPanel {
         );
 
         jPanel5.setBackground(new java.awt.Color(0, 255, 102));
+
+        idmedconsulta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idmedconsultaKeyTyped(evt);
+            }
+        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/user.png"))); // NOI18N
 
@@ -456,6 +473,24 @@ public class panelconsultas extends javax.swing.JPanel {
     private void nrconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nrconsultaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nrconsultaActionPerformed
+
+    private void nrconsultaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nrconsultaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_nrconsultaKeyTyped
+
+    private void cedconsultaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedconsultaKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_cedconsultaKeyTyped
+
+    private void idmedconsultaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idmedconsultaKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_idmedconsultaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
