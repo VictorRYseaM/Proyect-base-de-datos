@@ -77,7 +77,6 @@ public class panelconsultas extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(51, 255, 204));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("CONSULTAS MÉDICAS");
         jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -104,6 +103,12 @@ public class panelconsultas extends javax.swing.JPanel {
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText(" Nro. Consulta:");
+
+        nrconsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nrconsultaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -292,7 +297,6 @@ public class panelconsultas extends javax.swing.JPanel {
         );
 
         limpiarconsultas.setBackground(new java.awt.Color(51, 255, 204));
-        limpiarconsultas.setForeground(new java.awt.Color(0, 0, 0));
         limpiarconsultas.setText("Limpiar");
         limpiarconsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +305,6 @@ public class panelconsultas extends javax.swing.JPanel {
         });
 
         aceptarconsulta.setBackground(new java.awt.Color(51, 255, 204));
-        aceptarconsulta.setForeground(new java.awt.Color(0, 0, 0));
         aceptarconsulta.setText("Aceptar");
         aceptarconsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,6 +452,10 @@ public class panelconsultas extends javax.swing.JPanel {
         
 
     }//GEN-LAST:event_limpiarconsultasActionPerformed
+
+    private void nrconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nrconsultaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nrconsultaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
