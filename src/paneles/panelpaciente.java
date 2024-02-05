@@ -40,8 +40,8 @@ public class panelpaciente extends javax.swing.JPanel {
         JF.setText("");
         JF.setForeground(Color.black);
     }
-    
-    private void blank(JTextField jtf){
+
+    private void blank(JTextField jtf) {
         jtf.setText("");
     }
 
@@ -112,14 +112,20 @@ public class panelpaciente extends javax.swing.JPanel {
         fielddir = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        fieldtel = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         fieldname = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        fieldtel = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        fieldalergias = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        fieldpatologias = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         regbtn = new javax.swing.JButton();
@@ -361,6 +367,24 @@ public class panelpaciente extends javax.swing.JPanel {
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/home.png"))); // NOI18N
 
+        fieldtel.setForeground(new java.awt.Color(102, 102, 102));
+        fieldtel.setText("Ingresar telefono");
+        fieldtel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldtelActionPerformed(evt);
+            }
+        });
+        fieldtel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldtelKeyTyped(evt);
+            }
+        });
+
+        jLabel14.setText("Teléfono:");
+        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/phone-call.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -371,17 +395,26 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fielddir, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fielddir, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fieldtel, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fielddir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fieldtel, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fielddir, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -431,45 +464,62 @@ public class panelpaciente extends javax.swing.JPanel {
 
         jPanel8.setBackground(new java.awt.Color(0, 255, 102));
 
-        fieldtel.setForeground(new java.awt.Color(102, 102, 102));
-        fieldtel.setText("Ingresar telefono");
-        fieldtel.addActionListener(new java.awt.event.ActionListener() {
+        jLabel18.setText("Alergias:");
+        jLabel18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        fieldalergias.setForeground(new java.awt.Color(102, 102, 102));
+        fieldalergias.setText("Ingresar alergias");
+        fieldalergias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldtelActionPerformed(evt);
-            }
-        });
-        fieldtel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                fieldtelKeyTyped(evt);
+                fieldalergiasActionPerformed(evt);
             }
         });
 
-        jLabel14.setText("Teléfono:");
-        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/home.png"))); // NOI18N
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/phone-call.png"))); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/home.png"))); // NOI18N
+
+        jLabel20.setText("Patologias:");
+        jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        fieldpatologias.setForeground(new java.awt.Color(102, 102, 102));
+        fieldpatologias.setText("Ingresar patologias");
+        fieldpatologias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldpatologiasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel15)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldtel, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldalergias, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fieldpatologias, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fieldtel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fieldalergias, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fieldpatologias, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -577,7 +627,7 @@ public class panelpaciente extends javax.swing.JPanel {
         try {
             // TODO add your handling code here:
 
-            if (vacio(fieldci) || vacio(fieldname) || vacio(fieldape) || vacio(fielddir) || vacio(fieldgen) || vacio(fieldtel)) {
+            if (vacio(fieldci) || vacio(fieldname) || vacio(fieldape) || vacio(fielddir) || vacio(fieldgen) || vacio(fieldtel) || vacio(fieldpatologias) || vacio(fieldalergias)) {
                 JOptionPane.showMessageDialog(null, "Faltan campos por llenar");
             } else {
 
@@ -592,7 +642,7 @@ public class panelpaciente extends javax.swing.JPanel {
                 Conexion cn = new Conexion();
                 java.sql.Connection con = cn.conectar();
 
-                PreparedStatement ps = con.prepareStatement("INSERT INTO pacientes VALUES(?,?,?,?,?,?,?)");
+                PreparedStatement ps = con.prepareStatement("INSERT INTO pacientes VALUES(?,?,?,?,?,?,?,?,?)");
 
                 ps.setString(1, txtfield(fieldci));
                 ps.setString(2, txtfield(fieldname));
@@ -601,6 +651,8 @@ public class panelpaciente extends javax.swing.JPanel {
                 ps.setString(5, txtfield(fieldgen));
                 ps.setString(6, txtfield(fielddir));
                 ps.setString(7, txtfield(fieldtel));
+                ps.setString(8, txtfield(fieldalergias));
+                ps.setString(9, txtfield(fieldpatologias));
 
                 ps.executeUpdate();
 
@@ -629,38 +681,55 @@ public class panelpaciente extends javax.swing.JPanel {
         blank(fielddir);
         blank(fieldgen);
         blank(fieldtel);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void fieldciKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldciKeyTyped
         // TODO add your handling code here:
-         char c = evt.getKeyChar();
-        if(c<'0' || c>'9') evt.consume();
+
+        if (fieldci.getText().length() >= 8) {
+            evt.consume(); // Ignorar el carácter si ya se han introducido 11 caracteres
+        }
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();
     }//GEN-LAST:event_fieldciKeyTyped
 
     private void fieldtelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldtelKeyTyped
         // TODO add your handling code here:
-         char c = evt.getKeyChar();
-        if(c<'0' || c>'9') evt.consume();
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();
     }//GEN-LAST:event_fieldtelKeyTyped
 
     private void fieldnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldnameKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+            evt.consume();
     }//GEN-LAST:event_fieldnameKeyTyped
 
     private void fieldapeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldapeKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+            evt.consume();
     }//GEN-LAST:event_fieldapeKeyTyped
 
     private void fieldgenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldgenKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+            evt.consume();
     }//GEN-LAST:event_fieldgenKeyTyped
+
+    private void fieldalergiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldalergiasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldalergiasActionPerformed
+
+    private void fieldpatologiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldpatologiasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldpatologiasActionPerformed
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
@@ -673,11 +742,13 @@ public class panelpaciente extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.componentes.RSDateChooser fechafield;
+    private javax.swing.JTextField fieldalergias;
     private javax.swing.JTextField fieldape;
     private javax.swing.JTextField fieldci;
     private javax.swing.JTextField fielddir;
     private javax.swing.JTextField fieldgen;
     private javax.swing.JTextField fieldname;
+    private javax.swing.JTextField fieldpatologias;
     private javax.swing.JTextField fieldtel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -688,7 +759,11 @@ public class panelpaciente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

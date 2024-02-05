@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import paneles.panelconsultas;
+import paneles.panelhistoria;
 import paneles.panelmedicamentos;
 import paneles.panelmedico;
 import paneles.panelpaciente;
@@ -351,6 +352,7 @@ public class dd extends javax.swing.JFrame {
 
     private void pacientebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pacientebtn1ActionPerformed
         // TODO add your handling code here:
+        ShowJpanel(new panelhistoria());
     }//GEN-LAST:event_pacientebtn1ActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
