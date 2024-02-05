@@ -35,6 +35,8 @@ public class panelpaciente extends javax.swing.JPanel {
         initComponents();  // Asegúrate de que initComponents() inicialice todos los componentes
         applyFocusListenerToTextFields(this);  // Aplica el FocusListener al JPanel
     }
+    
+    //ASDAJSDHASKHDKASJDAHSKJ
 
     private void fieldenblanco(JTextField JF) {
         JF.setText("");
