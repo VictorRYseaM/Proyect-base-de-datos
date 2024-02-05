@@ -7,6 +7,8 @@ package com.principal;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightIJTheme;
 import java.awt.BorderLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -29,6 +31,9 @@ public class dd extends javax.swing.JFrame {
     public dd() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        Image miIcono = miPantalla.getImage("C:\\Users\\user\\Documents\\NetBeansProjects\\HistorialMedico\\src\\icon\\doctor (5).png");
+        setIconImage(miIcono);
     }
 
     private String correo;

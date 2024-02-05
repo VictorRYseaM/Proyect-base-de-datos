@@ -9,6 +9,8 @@ import clases.Conexion;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightIJTheme;
 import java.awt.HeadlessException;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,6 +33,10 @@ public class loginnuevo extends javax.swing.JFrame {
         initComponents();
         txtusername.setBackground(new java.awt.Color(0, 0, 0, 1));
         txtpassword.setBackground(new java.awt.Color(0, 0, 0, 1));
+
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        Image miIcono = miPantalla.getImage("C:\\Users\\user\\Documents\\NetBeansProjects\\HistorialMedico\\src\\icon\\doctor (5).png");
+        setIconImage(miIcono);
 
     }
 
@@ -89,16 +95,16 @@ public class loginnuevo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(25, 118, 211));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Created By Junior Programmer");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 500, -1));
+        jLabel12.setText("Historial Médico");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 500, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bg-login.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 35, 500, 340));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Aprendizaje_experimental (1).png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 490, 450));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 440));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 440));
 
         jPanel2.setBackground(new java.awt.Color(25, 118, 211));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -243,7 +249,7 @@ public class loginnuevo extends javax.swing.JFrame {
         jLabel14.setText("Sin cuenta de acceso?");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 357, 213, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 420, 440));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 430, 440));
 
         setSize(new java.awt.Dimension(916, 438));
         setLocationRelativeTo(null);
