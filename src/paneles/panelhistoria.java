@@ -6,6 +6,9 @@ package paneles;
 
 import clases.Conexion;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,10 +30,10 @@ public class panelhistoria extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        fieldci = new javax.swing.JTextField();
         searchbtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        areapaciente = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -41,9 +44,9 @@ public class panelhistoria extends javax.swing.JPanel {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        areapaciente.setColumns(20);
+        areapaciente.setRows(5);
+        jScrollPane2.setViewportView(areapaciente);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -54,7 +57,7 @@ public class panelhistoria extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldci, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(searchbtn)))
                 .addContainerGap(46, Short.MAX_VALUE))
@@ -64,7 +67,7 @@ public class panelhistoria extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchbtn))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -73,19 +76,40 @@ public class panelhistoria extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbtnActionPerformed
-        // TODO add your handling code here:
-        Conexion cn = new Conexion();
-        Connection conexion = cn.conectar();
-        
-        
-        
+        try {
+            String cii = fieldci.getText().trim();
+            if (cii.isBlank()) {
+                JOptionPane.showMessageDialog(null, "Ingrese la cedula del paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return; // Exit the method if input is blank
+            }
+
+            Conexion cn = new Conexion();
+            Connection conexion = cn.conectar();
+
+            // Use a prepared statement to prevent SQL injection
+            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM pacientes WHERE CI = ?");
+            ps.setString(1, cii);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                areapaciente.setText("El paciente tiene los siguiente datos:\nCI: "+rs.getString("CI")+"\nNombre: "+rs.getString("nombre_paciente")+"\nFecha de nacimiento: "+rs.getDate("fecha_nacimiento"));
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger("panelhistoria").log(Level.SEVERE, "Error buscando paciente", ex);
+        }
+
+
     }//GEN-LAST:event_searchbtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea areapaciente;
+    private javax.swing.JTextField fieldci;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton searchbtn;
     // End of variables declaration//GEN-END:variables
 }
