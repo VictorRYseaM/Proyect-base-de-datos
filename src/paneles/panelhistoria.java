@@ -81,7 +81,15 @@ public class panelhistoria extends javax.swing.JPanel {
             if (cii.isBlank()) {
                 JOptionPane.showMessageDialog(null, "Ingrese la cedula del paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return; // Exit the method if input is blank
+
+             String cio = fieldci.getText().trim();
+             if (cio.isBlank()) {
+                JOptionPane.showMessageDialog(null, "Ingrese la cedula del paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return; // Exit the method if input is blank
             }
+             
+            
+             
 
             Conexion cn = new Conexion();
             Connection conexion = cn.conectar();
@@ -93,7 +101,27 @@ public class panelhistoria extends javax.swing.JPanel {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                areapaciente.setText("El paciente tiene los siguiente datos:\nCI: "+rs.getString("CI")+"\nNombre: "+rs.getString("nombre_paciente")+"\nFecha de nacimiento: "+rs.getDate("fecha_nacimiento"));
+                areapaciente.setText("Datos personales::\nCI: "+rs.getString("CI")+"\nNombre: "+rs.getString("nombre_paciente")+"\nApellido: "+rs.getString("apellido_paciente")+"\nFecha de nacimiento: "+rs.getDate("fecha_nacimiento")+"\nGénero: "+rs.getString("genero_paciente")+"\nDirección: "+rs.getString("direccion_paciente")+"\nTeléfono: "+rs.getString("tel_paciente"));
+                        
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+           
+        } 
+       
+            
+          Conexion ct = new Conexion();
+            Connection conexion = ct.conectar();
+            
+          PreparedStatement ps = conexion.prepareStatement("SELECT * FROM consultasmedicas WHERE CI = ?");
+            ps.setString(1, cio);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                areapaciente.setText("Detalles de la consulta:\nID Consulta: "+rs.getString("id_consulta")+"\nCédula del Paciente: "+rs.getString("CI")+"\nID del Médico: "+rs.getString("id_medico")+"\nFecha de la consulta: "+rs.getDate("fecha_consulta")+"\nDiágnostico: "+rs.getString("diagnostico")+"\nReceta: "+rs.getString("receta"));
+                        
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -101,7 +129,6 @@ public class panelhistoria extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger("panelhistoria").log(Level.SEVERE, "Error buscando paciente", ex);
         }
-
 
     }//GEN-LAST:event_searchbtnActionPerformed
 
