@@ -6,6 +6,7 @@ package paneles;
 
 import clases.Conexion;
 import com.mysql.cj.protocol.Resultset;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -28,6 +29,19 @@ public class panelmedicamentos extends javax.swing.JPanel {
      */
     public panelmedicamentos() {
         initComponents();
+    }
+
+    private boolean formvacio() {
+        boolean vacio = false;
+        if (idmedicamento.getText().isBlank() || cedmedicamento.getText().isBlank() || medicamento.getText().isBlank() || dosimedicamento.getText().isBlank()) {
+            vacio = true;
+        }
+        return vacio;
+    }
+
+    private void fieldenblanco(JTextField JF) {
+        JF.setText("");
+        JF.setForeground(Color.black);
     }
 
     /**
@@ -107,22 +121,30 @@ public class panelmedicamentos extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(0, 255, 51));
-        jTextField1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
+        jTextField1.setBackground(new java.awt.Color(17, 111, 171));
+        jTextField1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("HISTORIAL MEDICAMENTO");
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 15, 898, -1));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-12, -1, 930, 50));
 
-        jLabel7.setBackground(new java.awt.Color(51, 255, 204));
+        jLabel7.setBackground(new java.awt.Color(25, 117, 209));
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("MANTENTE AL DÍA, NO PIERDAS TU CONTROL MÉDICO.");
         jLabel7.setOpaque(true);
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 430, 43));
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(25, 117, 209));
 
+        idmedicamento.setForeground(new java.awt.Color(102, 102, 102));
+        idmedicamento.setText("Ingrese ID de Historial");
+        idmedicamento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                idmedicamentoFocusGained(evt);
+            }
+        });
         idmedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 idmedicamentoKeyTyped(evt);
@@ -131,6 +153,7 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ID:");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/list.png"))); // NOI18N
@@ -139,12 +162,12 @@ public class panelmedicamentos extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(idmedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -160,10 +183,17 @@ public class panelmedicamentos extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 360, -1));
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel2.setBackground(new java.awt.Color(25, 117, 209));
 
+        cedmedicamento.setForeground(new java.awt.Color(102, 102, 102));
+        cedmedicamento.setText("Ingrese Cedula");
+        cedmedicamento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cedmedicamentoFocusGained(evt);
+            }
+        });
         cedmedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cedmedicamentoKeyTyped(evt);
@@ -172,6 +202,7 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Cédula:");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/driver-license.png"))); // NOI18N
@@ -181,11 +212,11 @@ public class panelmedicamentos extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cedmedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -201,10 +232,17 @@ public class panelmedicamentos extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 320, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 360, -1));
 
-        jPanel3.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel3.setBackground(new java.awt.Color(25, 117, 209));
 
+        medicamento.setForeground(new java.awt.Color(102, 102, 102));
+        medicamento.setText("Ingrese Nombre");
+        medicamento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                medicamentoFocusGained(evt);
+            }
+        });
         medicamento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 medicamentoKeyTyped(evt);
@@ -213,6 +251,7 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Medicamento:");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/medicine (1).png"))); // NOI18N
@@ -222,13 +261,13 @@ public class panelmedicamentos extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(8, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(medicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addComponent(medicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,12 +281,21 @@ public class panelmedicamentos extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 320, -1));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 360, -1));
 
-        jPanel4.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel4.setBackground(new java.awt.Color(25, 117, 209));
+
+        dosimedicamento.setForeground(new java.awt.Color(102, 102, 102));
+        dosimedicamento.setText("Ingrese Dosis");
+        dosimedicamento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dosimedicamentoFocusGained(evt);
+            }
+        });
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Dosificación:");
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/dosage.png"))); // NOI18N
@@ -262,8 +310,8 @@ public class panelmedicamentos extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dosimedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addComponent(dosimedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,19 +325,22 @@ public class panelmedicamentos extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 322, -1));
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 70, 340, -1));
 
-        jPanel5.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel5.setBackground(new java.awt.Color(25, 117, 209));
+        jPanel5.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Fecha inicio:");
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/calendar.png"))); // NOI18N
 
-        fechainicio.setColorBackground(new java.awt.Color(0, 204, 0));
-        fechainicio.setColorButtonHover(new java.awt.Color(51, 255, 51));
-        fechainicio.setColorForeground(new java.awt.Color(0, 153, 51));
+        fechainicio.setForeground(new java.awt.Color(0, 0, 0));
+        fechainicio.setColorBackground(new java.awt.Color(0, 51, 153));
+        fechainicio.setColorButtonHover(new java.awt.Color(0, 153, 255));
+        fechainicio.setColorForeground(new java.awt.Color(102, 102, 102));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -300,37 +351,40 @@ public class panelmedicamentos extends javax.swing.JPanel {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fechainicio, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fechainicio, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechainicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(fechainicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 322, -1));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 140, 340, -1));
 
-        jPanel7.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel7.setBackground(new java.awt.Color(25, 117, 209));
 
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
         jLabel19.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Fecha final:");
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/calendar.png"))); // NOI18N
 
-        fechafinal.setColorBackground(new java.awt.Color(0, 204, 0));
-        fechafinal.setColorButtonHover(new java.awt.Color(51, 255, 51));
-        fechafinal.setColorForeground(new java.awt.Color(0, 153, 51));
+        fechafinal.setForeground(new java.awt.Color(0, 0, 0));
+        fechafinal.setColorBackground(new java.awt.Color(0, 51, 153));
+        fechafinal.setColorButtonHover(new java.awt.Color(0, 153, 255));
+        fechafinal.setColorForeground(new java.awt.Color(102, 102, 102));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -341,27 +395,28 @@ public class panelmedicamentos extends javax.swing.JPanel {
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(fechafinal, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGap(18, 18, 18)
+                .addComponent(fechafinal, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechafinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(fechafinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 322, -1));
+        add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 210, 340, -1));
 
-        jPanel8.setBackground(new java.awt.Color(0, 255, 51));
+        jPanel8.setBackground(new java.awt.Color(17, 111, 171));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -382,7 +437,8 @@ public class panelmedicamentos extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/doctor (3).png"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 130, 130));
 
-        limpiarmedicamento.setBackground(new java.awt.Color(0, 255, 51));
+        limpiarmedicamento.setBackground(new java.awt.Color(5, 80, 155));
+        limpiarmedicamento.setForeground(new java.awt.Color(255, 255, 255));
         limpiarmedicamento.setText("Limpiar");
         limpiarmedicamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -391,7 +447,8 @@ public class panelmedicamentos extends javax.swing.JPanel {
         });
         add(limpiarmedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 260, 40));
 
-        aceptarmedicamento.setBackground(new java.awt.Color(0, 255, 51));
+        aceptarmedicamento.setBackground(new java.awt.Color(5, 80, 155));
+        aceptarmedicamento.setForeground(new java.awt.Color(255, 255, 255));
         aceptarmedicamento.setText("Aceptar");
         aceptarmedicamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,47 +461,58 @@ public class panelmedicamentos extends javax.swing.JPanel {
     private void aceptarmedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarmedicamentoActionPerformed
         // TODO add your handling code here:
         try {
-            String formatoFecha = "yyyy-MM-dd";
-            SimpleDateFormat formateador = new SimpleDateFormat(formatoFecha);
 
-            java.util.Date fechaini = fechainicio.getDatoFecha();
-            java.util.Date fechaend = fechafinal.getDatoFecha();
-            String fechaFormateada = formateador.format(fechaini);
-            String fechaFormateada2 = formateador.format(fechaend);
-
-            Date fechaSqlini = Date.valueOf(fechaFormateada);
-            Date fechaSqlfinal = Date.valueOf(fechaFormateada2);
-
-            String id = idmedicamento.getText();
-            String cedula = cedmedicamento.getText();
-            String med = medicamento.getText();
-            String dosificacion = dosimedicamento.getText();
-
-            Conexion cm = new Conexion();
-            Connection conexion = cm.conectar();
-
-            PreparedStatement ps2 = conexion.prepareStatement("SELECT * FROM pacientes WHERE CI=?");
-
-            ps2.setString(1, cedula);
-
-            ResultSet rs = ps2.executeQuery();
-
-            if (rs.next()) {
-
-                PreparedStatement ps = conexion.prepareStatement("INSERT INTO historialmedicamentos values (?,?,?,?,?,?)");
-                ps.setString(1, id);
-                ps.setString(2, cedula);
-                ps.setString(3, med);
-                ps.setString(4, dosificacion);
-                ps.setDate(5, fechaSqlini);
-                ps.setDate(6, fechaSqlfinal);
-
-                ps.executeUpdate();
-
-                JOptionPane.showMessageDialog(null, "Registro éxitoso");
+            if (formvacio()) {
+                JOptionPane.showMessageDialog(null, "FALTAN CAMPOS POR LLENAR", "AVISO", JOptionPane.WARNING_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "El paciente no esta registrado");
-                cedmedicamento.setText("CEDULA NO ENCONTRADA");
+                String formatoFecha = "yyyy-MM-dd";
+                SimpleDateFormat formateador = new SimpleDateFormat(formatoFecha);
+
+                java.util.Date fechaini = fechainicio.getDatoFecha();
+                java.util.Date fechaend = fechafinal.getDatoFecha();
+                String fechaFormateada = formateador.format(fechaini);
+                String fechaFormateada2 = formateador.format(fechaend);
+
+                Date fechaSqlini = Date.valueOf(fechaFormateada);
+                Date fechaSqlfinal = Date.valueOf(fechaFormateada2);
+
+                String id = idmedicamento.getText();
+                String cedula = cedmedicamento.getText();
+                String med = medicamento.getText();
+                String dosificacion = dosimedicamento.getText();
+
+                Conexion cm = new Conexion();
+                Connection conexion = cm.conectar();
+                PreparedStatement ps = conexion.prepareStatement("SELECT * FROM medicamentos WHERE id_historial=?");
+                PreparedStatement ps2 = conexion.prepareStatement("SELECT * FROM pacientes WHERE CI=?");
+
+                ps.setString(1, id);
+                ps2.setString(1, cedula);
+
+                ResultSet rs = ps.executeQuery();
+                ResultSet rs2 = ps2.executeQuery();
+
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Numero de historial clinico ya registrado", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    idmedicamento.setText("ID YA REGISTRADO");
+                } else if (rs2.next()) {
+
+                    PreparedStatement ps3 = conexion.prepareStatement("INSERT INTO medicamentos values (?,?,?,?,?,?)");
+                    ps3.setString(1, id);
+                    ps3.setString(2, cedula);
+                    ps3.setString(3, med);
+                    ps3.setString(4, dosificacion);
+                    ps3.setDate(5, fechaSqlini);
+                    ps3.setDate(6, fechaSqlfinal);
+
+                    ps3.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Registro éxitoso");
+                } else {
+                    JOptionPane.showMessageDialog(null, "El paciente no esta registrado", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    cedmedicamento.setText("CEDULA NO ENCONTRADA");
+                }
+
             }
 
         } catch (SQLException ex) {
@@ -455,11 +523,11 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
     private void limpiarmedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarmedicamentoActionPerformed
         // TODO add your handling code here:
-           blank(cedmedicamento);
+        blank(cedmedicamento);
         blank(dosimedicamento);
         blank(idmedicamento);
         blank(medicamento);
-        
+
 
     }//GEN-LAST:event_limpiarmedicamentoActionPerformed
 
@@ -470,20 +538,43 @@ public class panelmedicamentos extends javax.swing.JPanel {
     private void idmedicamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idmedicamentoKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if(c<'0' || c>'9') evt.consume();
+        if (c < '0' || c > '9')
+            evt.consume();
     }//GEN-LAST:event_idmedicamentoKeyTyped
 
     private void cedmedicamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedmedicamentoKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if(c<'0' || c>'9') evt.consume();
+        if (c < '0' || c > '9')
+            evt.consume();
     }//GEN-LAST:event_cedmedicamentoKeyTyped
 
     private void medicamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medicamentoKeyTyped
         // TODO add your handling code here:
-         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A') | c>'Z') evt.consume();
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z')
+            evt.consume();
     }//GEN-LAST:event_medicamentoKeyTyped
+
+    private void idmedicamentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idmedicamentoFocusGained
+        // TODO add your handling code here:
+        fieldenblanco(idmedicamento);
+    }//GEN-LAST:event_idmedicamentoFocusGained
+
+    private void cedmedicamentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cedmedicamentoFocusGained
+        // TODO add your handling code here:
+        fieldenblanco(cedmedicamento);
+    }//GEN-LAST:event_cedmedicamentoFocusGained
+
+    private void medicamentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_medicamentoFocusGained
+        // TODO add your handling code here:
+        fieldenblanco(medicamento);
+    }//GEN-LAST:event_medicamentoFocusGained
+
+    private void dosimedicamentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dosimedicamentoFocusGained
+        // TODO add your handling code here:
+        fieldenblanco(dosimedicamento);
+    }//GEN-LAST:event_dosimedicamentoFocusGained
     private void blank(JTextField jtf) {
         jtf.setText("");
     }

@@ -36,7 +36,6 @@ public class panelpaciente extends javax.swing.JPanel {
         applyFocusListenerToTextFields(this);  // Aplica el FocusListener al JPanel
     }
     
-    //ASDAJSDHASKHDKASJDAHSKJ
 
     private void fieldenblanco(JTextField JF) {
         JF.setText("");
@@ -134,10 +133,12 @@ public class panelpaciente extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(17, 111, 171));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(0, 255, 102));
-        jLabel1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(17, 111, 171));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pacientes");
         jLabel1.setToolTipText("");
@@ -146,18 +147,21 @@ public class panelpaciente extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 911, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel2.setBackground(new java.awt.Color(25, 117, 209));
 
+        jLabel4.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cédula:");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -225,7 +229,7 @@ public class panelpaciente extends javax.swing.JPanel {
                     .addContainerGap()))
         );
 
-        jPanel4.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel4.setBackground(new java.awt.Color(25, 117, 209));
 
         fieldape.setForeground(new java.awt.Color(102, 102, 102));
         fieldape.setText("Ingresar apellido");
@@ -240,6 +244,8 @@ public class panelpaciente extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Apellido:");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -269,7 +275,7 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel5.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel5.setBackground(new java.awt.Color(25, 117, 209));
 
         fieldgen.setForeground(new java.awt.Color(102, 102, 102));
         fieldgen.setText("Ingresar genero");
@@ -284,6 +290,8 @@ public class panelpaciente extends javax.swing.JPanel {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Género:");
         jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -313,16 +321,19 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel6.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel6.setBackground(new java.awt.Color(25, 117, 209));
 
+        jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Fecha de nacimiento:");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/calendar.png"))); // NOI18N
 
-        fechafield.setColorBackground(new java.awt.Color(0, 204, 0));
-        fechafield.setColorButtonHover(new java.awt.Color(51, 255, 51));
-        fechafield.setColorForeground(new java.awt.Color(0, 153, 51));
+        fechafield.setForeground(new java.awt.Color(0, 0, 0));
+        fechafield.setColorBackground(new java.awt.Color(0, 51, 153));
+        fechafield.setColorButtonHover(new java.awt.Color(0, 153, 255));
+        fechafield.setColorForeground(new java.awt.Color(0, 0, 0));
         fechafield.setFormatoFecha("yyyy-MM-dd");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -354,7 +365,7 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel7.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel7.setBackground(new java.awt.Color(25, 117, 209));
 
         fielddir.setForeground(new java.awt.Color(102, 102, 102));
         fielddir.setText("Ingresar direccion");
@@ -364,6 +375,8 @@ public class panelpaciente extends javax.swing.JPanel {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Dirección:");
         jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -382,6 +395,8 @@ public class panelpaciente extends javax.swing.JPanel {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Teléfono:");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -396,7 +411,7 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(fielddir, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel15)
@@ -420,8 +435,10 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel3.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel3.setBackground(new java.awt.Color(25, 117, 209));
 
+        jLabel2.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -464,8 +481,10 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel8.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel8.setBackground(new java.awt.Color(25, 117, 209));
 
+        jLabel18.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Alergias:");
         jLabel18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -481,6 +500,8 @@ public class panelpaciente extends javax.swing.JPanel {
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/home.png"))); // NOI18N
 
+        jLabel20.setFont(new java.awt.Font("Book Antiqua", 1, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Patologias:");
         jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -501,7 +522,7 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(fieldalergias, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel19)
@@ -528,20 +549,20 @@ public class panelpaciente extends javax.swing.JPanel {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/patient.png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(51, 255, 204));
+        jButton1.setBackground(new java.awt.Color(5, 80, 155));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Limpiar");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        regbtn.setBackground(new java.awt.Color(51, 255, 204));
+        regbtn.setBackground(new java.awt.Color(5, 80, 155));
+        regbtn.setForeground(new java.awt.Color(255, 255, 255));
         regbtn.setText("Registrar");
-        regbtn.setBorder(null);
-        regbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        regbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         regbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regbtnActionPerformed(evt);
@@ -560,7 +581,7 @@ public class panelpaciente extends javax.swing.JPanel {
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -597,7 +618,7 @@ public class panelpaciente extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(regbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -683,6 +704,9 @@ public class panelpaciente extends javax.swing.JPanel {
         blank(fielddir);
         blank(fieldgen);
         blank(fieldtel);
+        blank(fieldalergias);
+        blank(fieldpatologias);
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

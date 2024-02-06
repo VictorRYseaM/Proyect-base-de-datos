@@ -5,6 +5,7 @@
 package paneles;
 
 import clases.Conexion;
+import com.mysql.cj.protocol.Resultset;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,7 +45,9 @@ public class panelhistoria extends javax.swing.JPanel {
             }
         });
 
+        areapaciente.setEditable(false);
         areapaciente.setColumns(20);
+        areapaciente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         areapaciente.setRows(5);
         jScrollPane2.setViewportView(areapaciente);
 
@@ -55,12 +58,12 @@ public class panelhistoria extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(fieldci, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(searchbtn)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,63 +72,71 @@ public class panelhistoria extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchbtn))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbtnActionPerformed
-        try {
+        String datos = "",consultatitulo = "Detalles de las consultas realizadas:",medititulo="Detalles de los medicamentos asignados:";
+        StringBuilder consultas = new StringBuilder();
+        StringBuilder medicamentos = new StringBuilder();
+        try { 
             String cii = fieldci.getText().trim();
             if (cii.isBlank()) {
                 JOptionPane.showMessageDialog(null, "Ingrese la cedula del paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
-                return; // Exit the method if input is blank
+            } else {
+                Conexion cn = new Conexion();
+                Connection conexion = cn.conectar();
 
-             String cio = fieldci.getText().trim();
-             if (cio.isBlank()) {
-                JOptionPane.showMessageDialog(null, "Ingrese la cedula del paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
-                return; // Exit the method if input is blank
-            }
-             
-            
-             
-
-            Conexion cn = new Conexion();
-            Connection conexion = cn.conectar();
-
-            // Use a prepared statement to prevent SQL injection
-            PreparedStatement ps = conexion.prepareStatement("SELECT * FROM pacientes WHERE CI = ?");
-            ps.setString(1, cii);
-
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                areapaciente.setText("Datos personales::\nCI: "+rs.getString("CI")+"\nNombre: "+rs.getString("nombre_paciente")+"\nApellido: "+rs.getString("apellido_paciente")+"\nFecha de nacimiento: "+rs.getDate("fecha_nacimiento")+"\nGénero: "+rs.getString("genero_paciente")+"\nDirección: "+rs.getString("direccion_paciente")+"\nTeléfono: "+rs.getString("tel_paciente"));
-                        
+                // Use a prepared statement to prevent SQL injection
+                PreparedStatement ps = conexion.prepareStatement("SELECT * FROM pacientes WHERE CI = ?");
+                PreparedStatement ps2 = conexion.prepareStatement("SELECT * FROM consultasmedicas WHERE CI = ?");
+                PreparedStatement ps3 = conexion.prepareStatement("SELECT * FROM medicamentos WHERE CI = ?");
                 
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-           
-        } 
-       
-            
-          Conexion ct = new Conexion();
-            Connection conexion = ct.conectar();
-            
-          PreparedStatement ps = conexion.prepareStatement("SELECT * FROM consultasmedicas WHERE CI = ?");
-            ps.setString(1, cio);
+                ps.setString(1, cii);
+                ps2.setString(1, cii);
+                ps3.setString(1, cii);
 
-            ResultSet rs = ps.executeQuery();
+                ResultSet rs = ps.executeQuery();
+                ResultSet rs2 = ps2.executeQuery();
+                ResultSet rs3 = ps3.executeQuery();
 
-            if (rs.next()) {
-                areapaciente.setText("Detalles de la consulta:\nID Consulta: "+rs.getString("id_consulta")+"\nCédula del Paciente: "+rs.getString("CI")+"\nID del Médico: "+rs.getString("id_medico")+"\nFecha de la consulta: "+rs.getDate("fecha_consulta")+"\nDiágnostico: "+rs.getString("diagnostico")+"\nReceta: "+rs.getString("receta"));
+                if (rs.next()) {
+                    datos = "Datos personales:\n\nCI: " + rs.getString("CI") + "\nNombre: " + rs.getString("nombre_paciente") + "\nApellido: " + rs.getString("apellido_paciente") + "\nFecha de nacimiento: " + rs.getDate("fecha_nacimiento") + "\nGénero: " + rs.getString("genero_paciente") + "\nDirección: " + rs.getString("direccion_paciente") + "\nTeléfono: " + rs.getString("tel_paciente") + "\nAlergias: "+rs.getString("alergias")+"\nPatologías: "+rs.getString("patologias");
+                    rs.close();
+
+                    while (rs2.next()) {
                         
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
+                        String consulta = "\n\nID Consulta: " + rs2.getString("id_consulta") + "\nCédula del Paciente: " + rs2.getString("CI") + "\nID del Médico: " + rs2.getString("id_medico") + "\nFecha de la consulta: " + rs2.getDate("fecha_consulta") + "\nDiágnostico: " + rs2.getString("diagnostico") + "\nReceta: " + rs2.getString("receta");
+                        consultas.append(consulta);
+                    }
 
+                    if (consultas.length() == 0) {
+                        consultas.append("\nEl paciente no tiene consultas");
+                    }
+                    
+                    while (rs3.next()) {
+                        String medicamento="\n\nID historial: "+rs3.getString("id_historial")+"\nCédula del Paciente: " + rs3.getString("CI") + "\nNombre medicamento: "+rs3.getString("medicamento")+"\nDosificación: "+rs3.getString("dosificacion")+"\nFecha inicio: " + rs3.getDate("fecha_inicio")+"\nFecha fin: "+rs3.getDate("fecha_fin");
+                        medicamentos.append(medicamento);
+
+                    }
+                    
+                    if (medicamentos.length()==0) {
+                        medicamentos.append("\nNo tiene medicamentos asignados");
+                    }
+
+                    areapaciente.setText(datos + "\n\n________________________________________________________________________________________________________\n\n"+consultatitulo + consultas.toString()+"\n\n________________________________________________________________________________________________________\n\n"+medititulo+medicamentos);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No existe el paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    areapaciente.setText("DATOS NO ENCONTRADOS");
+                }
+
+                // Cerrar las declaraciones preparadas
+                ps.close();
+                ps2.close();
+            }
         } catch (SQLException ex) {
             Logger.getLogger("panelhistoria").log(Level.SEVERE, "Error buscando paciente", ex);
         }
