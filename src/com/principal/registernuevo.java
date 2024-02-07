@@ -58,9 +58,8 @@ public class registernuevo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -94,15 +93,6 @@ public class registernuevo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(25, 118, 211));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Created By Junior Programmer");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 500, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bg-login.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 35, 500, 340));
-
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(25, 118, 211));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -115,7 +105,10 @@ public class registernuevo extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 40, 29));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 500, 440));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Aprendizaje_experimental (1).png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 520, 440));
 
         jPanel2.setBackground(new java.awt.Color(25, 118, 211));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -196,7 +189,6 @@ public class registernuevo extends javax.swing.JFrame {
         });
         jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 30, 40));
 
-        btnreg.setBackground(new java.awt.Color(255, 255, 255));
         btnreg.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnreg.setForeground(new java.awt.Color(25, 118, 211));
         btnreg.setText("REGISTRARSE");
@@ -430,13 +422,12 @@ public class registernuevo extends javax.swing.JFrame {
     private javax.swing.JButton btnreg;
     private javax.swing.JLabel disable;
     private javax.swing.JLabel disable2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
