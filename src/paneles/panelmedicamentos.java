@@ -33,7 +33,7 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
     private boolean formvacio() {
         boolean vacio = false;
-        if (idmedicamento.getText().isBlank() || cedmedicamento.getText().isBlank() || medicamento.getText().isBlank() || dosimedicamento.getText().isBlank()) {
+        if (idmedicamento.getText().isBlank() ||idmedicamento.getText().equals("Ingrese ID de Historial")|| cedmedicamento.getText().isBlank() ||cedmedicamento.getText().equals("Ingrese Cedula")|| medicamento.getText().isBlank() ||medicamento.getText().equals("Ingrese Nombre")|| dosimedicamento.getText().isBlank()||dosimedicamento.getText().equals("Ingrese Dosis")) {
             vacio = true;
         }
         return vacio;
@@ -544,6 +544,9 @@ public class panelmedicamentos extends javax.swing.JPanel {
 
     private void cedmedicamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedmedicamentoKeyTyped
         // TODO add your handling code here:
+        if (cedmedicamento.getText().length() >= 8) {
+            evt.consume(); // Ignorar el carácter si ya se han introducido 11 caracteres
+        }
         char c = evt.getKeyChar();
         if (c < '0' || c > '9')
             evt.consume();

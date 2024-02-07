@@ -54,6 +54,7 @@ public class panelmedico extends javax.swing.JPanel {
 
                             idmedico.setText(rs.getString(1));
                             idmedico.setForeground(Color.black);
+                            idmedico.setEnabled(false);
 
                             nombremedico.setText(rs.getString(2));
                             nombremedico.setForeground(Color.black);
@@ -122,7 +123,7 @@ public class panelmedico extends javax.swing.JPanel {
 
     private boolean formvacio() {
         boolean vacio = false;
-        if (idmedico.getText().isBlank() || nombremedico.getText().isBlank() || especialidadmedico.getText().isBlank() || telmedico.getText().isBlank()) {
+        if (idmedico.getText().isBlank() || idmedico.getText().equals("Ingresar ID") || nombremedico.getText().isBlank() || nombremedico.getText().equals("Ingresar Nombre") || especialidadmedico.getText().isBlank() || especialidadmedico.getText().equals("Ingresar Especialidad") || telmedico.getText().isBlank() || telmedico.getText().equals("Ingresar Telefono")) {
             vacio = true;
         }
         return vacio;
@@ -375,7 +376,7 @@ public class panelmedico extends javax.swing.JPanel {
         jLabel13.setText("Especialidad:");
 
         especialidadmedico.setForeground(new java.awt.Color(102, 102, 102));
-        especialidadmedico.setText("Ingresar Apellido");
+        especialidadmedico.setText("Ingresar Especialidad");
         especialidadmedico.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 especialidadmedicoFocusGained(evt);
@@ -533,12 +534,11 @@ public class panelmedico extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(delbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(modbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+                            .addComponent(modbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -564,35 +564,42 @@ public class panelmedico extends javax.swing.JPanel {
     private void registrarmedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarmedicoActionPerformed
         try {
             // TODO add your handling code here:
-            int id = Integer.parseInt(idmedico.getText());
-            String nombre = nombremedico.getText();
-            String especialidad = especialidadmedico.getText();
-            String tel = telmedico.getText();
 
-            Conexion cm = new Conexion();
-            Connection conexion = cm.conectar();
-            PreparedStatement ps2 = conexion.prepareStatement("SELECT * FROM medicos WHERE id_medico=?");
-            ps2.setInt(1, id);
-
-            ResultSet rs = ps2.executeQuery();
-
-            if (formvacio()) {
-                JOptionPane.showMessageDialog(null, "FALTAN CAMPOS POR LLENAR", "ERROR", JOptionPane.WARNING_MESSAGE);
-
-            } else if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Ya el id de medico existe", "ERROR", JOptionPane.ERROR_MESSAGE);
+            if (idmedico.getText().equals("Ingrese ID") || !idmedico.getText().matches("\\d+")) {
+                JOptionPane.showMessageDialog(null, "FALTAN CAMPOS POR LLENAR O ID INVALIDO", "ERROR", JOptionPane.WARNING_MESSAGE);
 
             } else {
 
-                PreparedStatement ps = conexion.prepareStatement("INSERT INTO medicos values (?,?,?,?)");
-                ps.setInt(1, id);
-                ps.setString(2, nombre);
-                ps.setString(3, especialidad);
-                ps.setString(4, tel);
+                int id = Integer.parseInt(idmedico.getText());
+                String nombre = nombremedico.getText();
+                String especialidad = especialidadmedico.getText();
+                String tel = telmedico.getText();
 
-                ps.executeUpdate();
+                Conexion cm = new Conexion();
+                Connection conexion = cm.conectar();
+                PreparedStatement ps2 = conexion.prepareStatement("SELECT * FROM medicos WHERE id_medico=?");
+                ps2.setInt(1, id);
 
-                JOptionPane.showMessageDialog(null, "Registro éxitoso");
+                ResultSet rs = ps2.executeQuery();
+
+                if (formvacio()) {
+                    JOptionPane.showMessageDialog(null, "FALTAN CAMPOS POR LLENAR", "ERROR", JOptionPane.WARNING_MESSAGE);
+
+                } else if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Ya el id de medico existe", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                } else {
+
+                    PreparedStatement ps = conexion.prepareStatement("INSERT INTO medicos values (?,?,?,?)");
+                    ps.setInt(1, id);
+                    ps.setString(2, nombre);
+                    ps.setString(3, especialidad);
+                    ps.setString(4, tel);
+
+                    ps.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Registro éxitoso");
+                }
             }
 
         } catch (SQLException ex) {
@@ -617,6 +624,7 @@ public class panelmedico extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         blank(idmedico);
+        idmedico.setEditable(true);
         blank(telmedico);
         blank(especialidadmedico);
         blank(nombremedico);
@@ -625,6 +633,7 @@ public class panelmedico extends javax.swing.JPanel {
 
     private void idmedicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idmedicoKeyTyped
         // TODO add your handling code here:
+
         char c = evt.getKeyChar();
         if (c < '0' || c > '9') {
             evt.consume();
@@ -634,6 +643,9 @@ public class panelmedico extends javax.swing.JPanel {
 
     private void telmedicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telmedicoKeyTyped
         // TODO add your handling code here:
+        if (telmedico.getText().length() >= 11) {
+            evt.consume(); // Ignorar el carácter si ya se han introducido 11 caracteres
+        }
         char c = evt.getKeyChar();
         if (c < '0' || c > '9')
             evt.consume();
@@ -696,13 +708,13 @@ public class panelmedico extends javax.swing.JPanel {
                 ps.setString(2, esp);
                 ps.setString(3, tel);
                 ps.setInt(4, idmed);
-               
 
                 ps.executeUpdate();
 
                 JOptionPane.showMessageDialog(null, "Modificacion realizada exitosamente");
 
                 blank(idmedico);
+                idmedico.setEditable(true);
                 blank(telmedico);
                 blank(especialidadmedico);
                 blank(nombremedico);
@@ -718,7 +730,7 @@ public class panelmedico extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             if (idmedico.getText().trim().equals("Ingresar ID") || idmedico.getText().isBlank()) {
-                JOptionPane.showMessageDialog(null, "Tiene que ingresa el ID del medico", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Tiene que ingresar el ID del medico", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
                 Conexion cn = new Conexion();
                 Connection conexion = cn.conectar();
@@ -738,6 +750,7 @@ public class panelmedico extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Eliminacion realizada exitosamente");
 
                 blank(idmedico);
+                idmedico.setEditable(true);
                 blank(telmedico);
                 blank(especialidadmedico);
                 blank(nombremedico);

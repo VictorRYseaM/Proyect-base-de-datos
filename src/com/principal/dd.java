@@ -294,8 +294,9 @@ public class dd extends javax.swing.JFrame {
         viewp.setBackground(new java.awt.Color(255, 255, 255));
         viewp.setPreferredSize(new java.awt.Dimension(870, 550));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/1.png"))); // NOI18N
-        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 255), 2, true));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/fotov1.png"))); // NOI18N
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout viewpLayout = new javax.swing.GroupLayout(viewp);
         viewp.setLayout(viewpLayout);
@@ -308,10 +309,10 @@ public class dd extends javax.swing.JFrame {
         );
         viewpLayout.setVerticalGroup(
             viewpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewpLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+            .addGroup(viewpLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jPanel1.add(viewp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 890, 560));

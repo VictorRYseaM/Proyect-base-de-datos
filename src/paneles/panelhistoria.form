@@ -52,6 +52,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="fieldci">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldciKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="searchbtn">
       <Properties>

@@ -35,7 +35,6 @@ public class panelpaciente extends javax.swing.JPanel {
         initComponents();  // Asegúrate de que initComponents() inicialice todos los componentes
         applyFocusListenerToTextFields(this);  // Aplica el FocusListener al JPanel
     }
-    
 
     private void fieldenblanco(JTextField JF) {
         JF.setText("");
@@ -649,9 +648,18 @@ public class panelpaciente extends javax.swing.JPanel {
     private void regbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regbtnActionPerformed
         try {
             // TODO add your handling code here:
+            Conexion cn = new Conexion();
+            java.sql.Connection con = cn.conectar();
+
+            PreparedStatement ps2 = con.prepareStatement("SELECT * FROM pacientes WHERE CI=?");
+            ps2.setString(1, txtfield(fieldci));
+            ResultSet rs = ps2.executeQuery();
 
             if (vacio(fieldci) || vacio(fieldname) || vacio(fieldape) || vacio(fielddir) || vacio(fieldgen) || vacio(fieldtel) || vacio(fieldpatologias) || vacio(fieldalergias)) {
                 JOptionPane.showMessageDialog(null, "Faltan campos por llenar");
+            } else if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "CEDULA YA REGISTRADA", "ERROR", JOptionPane.ERROR_MESSAGE);
+
             } else {
 
                 String formatoFecha = "yyyy-MM-dd";
@@ -661,9 +669,6 @@ public class panelpaciente extends javax.swing.JPanel {
                 String fechaFormateada = formateador.format(fecha);
 
                 Date fechaSql = Date.valueOf(fechaFormateada);
-
-                Conexion cn = new Conexion();
-                java.sql.Connection con = cn.conectar();
 
                 PreparedStatement ps = con.prepareStatement("INSERT INTO pacientes VALUES(?,?,?,?,?,?,?,?,?)");
 
@@ -706,7 +711,7 @@ public class panelpaciente extends javax.swing.JPanel {
         blank(fieldtel);
         blank(fieldalergias);
         blank(fieldpatologias);
-        
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -723,6 +728,9 @@ public class panelpaciente extends javax.swing.JPanel {
 
     private void fieldtelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldtelKeyTyped
         // TODO add your handling code here:
+        if (fieldtel.getText().length() >= 11) {
+            evt.consume(); // Ignorar el carácter si ya se han introducido 11 caracteres
+        }
         char c = evt.getKeyChar();
         if (c < '0' || c > '9')
             evt.consume();

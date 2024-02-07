@@ -38,6 +38,12 @@ public class panelhistoria extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        fieldci.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldciKeyTyped(evt);
+            }
+        });
+
         searchbtn.setText("Buscar");
         searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,10 +85,10 @@ public class panelhistoria extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbtnActionPerformed
-        String datos = "",consultatitulo = "Detalles de las consultas realizadas:",medititulo="Detalles de los medicamentos asignados:";
+        String datos = "", consultatitulo = "Detalles de las consultas realizadas:", medititulo = "Detalles de los medicamentos asignados:";
         StringBuilder consultas = new StringBuilder();
         StringBuilder medicamentos = new StringBuilder();
-        try { 
+        try {
             String cii = fieldci.getText().trim();
             if (cii.isBlank()) {
                 JOptionPane.showMessageDialog(null, "Ingrese la cedula del paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -94,7 +100,7 @@ public class panelhistoria extends javax.swing.JPanel {
                 PreparedStatement ps = conexion.prepareStatement("SELECT * FROM pacientes WHERE CI = ?");
                 PreparedStatement ps2 = conexion.prepareStatement("SELECT * FROM consultasmedicas WHERE CI = ?");
                 PreparedStatement ps3 = conexion.prepareStatement("SELECT * FROM medicamentos WHERE CI = ?");
-                
+
                 ps.setString(1, cii);
                 ps2.setString(1, cii);
                 ps3.setString(1, cii);
@@ -104,11 +110,11 @@ public class panelhistoria extends javax.swing.JPanel {
                 ResultSet rs3 = ps3.executeQuery();
 
                 if (rs.next()) {
-                    datos = "Datos personales:\n\nCI: " + rs.getString("CI") + "\nNombre: " + rs.getString("nombre_paciente") + "\nApellido: " + rs.getString("apellido_paciente") + "\nFecha de nacimiento: " + rs.getDate("fecha_nacimiento") + "\nGénero: " + rs.getString("genero_paciente") + "\nDirección: " + rs.getString("direccion_paciente") + "\nTeléfono: " + rs.getString("tel_paciente") + "\nAlergias: "+rs.getString("alergias")+"\nPatologías: "+rs.getString("patologias");
+                    datos = "Datos personales:\n\nCI: " + rs.getString("CI") + "\nNombre: " + rs.getString("nombre_paciente") + "\nApellido: " + rs.getString("apellido_paciente") + "\nFecha de nacimiento: " + rs.getDate("fecha_nacimiento") + "\nGénero: " + rs.getString("genero_paciente") + "\nDirección: " + rs.getString("direccion_paciente") + "\nTeléfono: " + rs.getString("tel_paciente") + "\nAlergias: " + rs.getString("alergias") + "\nPatologías: " + rs.getString("patologias");
                     rs.close();
 
                     while (rs2.next()) {
-                        
+
                         String consulta = "\n\nID Consulta: " + rs2.getString("id_consulta") + "\nCédula del Paciente: " + rs2.getString("CI") + "\nID del Médico: " + rs2.getString("id_medico") + "\nFecha de la consulta: " + rs2.getDate("fecha_consulta") + "\nDiágnostico: " + rs2.getString("diagnostico") + "\nReceta: " + rs2.getString("receta");
                         consultas.append(consulta);
                     }
@@ -116,18 +122,18 @@ public class panelhistoria extends javax.swing.JPanel {
                     if (consultas.length() == 0) {
                         consultas.append("\nEl paciente no tiene consultas");
                     }
-                    
+
                     while (rs3.next()) {
-                        String medicamento="\n\nID historial: "+rs3.getString("id_historial")+"\nCédula del Paciente: " + rs3.getString("CI") + "\nNombre medicamento: "+rs3.getString("medicamento")+"\nDosificación: "+rs3.getString("dosificacion")+"\nFecha inicio: " + rs3.getDate("fecha_inicio")+"\nFecha fin: "+rs3.getDate("fecha_fin");
+                        String medicamento = "\n\nID historial: " + rs3.getString("id_historial") + "\nCédula del Paciente: " + rs3.getString("CI") + "\nNombre medicamento: " + rs3.getString("medicamento") + "\nDosificación: " + rs3.getString("dosificacion") + "\nFecha inicio: " + rs3.getDate("fecha_inicio") + "\nFecha fin: " + rs3.getDate("fecha_fin");
                         medicamentos.append(medicamento);
 
                     }
-                    
-                    if (medicamentos.length()==0) {
+
+                    if (medicamentos.length() == 0) {
                         medicamentos.append("\nNo tiene medicamentos asignados");
                     }
 
-                    areapaciente.setText(datos + "\n\n________________________________________________________________________________________________________\n\n"+consultatitulo + consultas.toString()+"\n\n________________________________________________________________________________________________________\n\n"+medititulo+medicamentos);
+                    areapaciente.setText(datos + "\n\n________________________________________________________________________________________________________\n\n" + consultatitulo + consultas.toString() + "\n\n________________________________________________________________________________________________________\n\n" + medititulo + medicamentos);
                 } else {
                     JOptionPane.showMessageDialog(null, "No existe el paciente", "ERROR", JOptionPane.ERROR_MESSAGE);
                     areapaciente.setText("DATOS NO ENCONTRADOS");
@@ -142,6 +148,16 @@ public class panelhistoria extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_searchbtnActionPerformed
+
+    private void fieldciKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldciKeyTyped
+        // TODO add your handling code here:
+        if (fieldci.getText().length() >= 8) {
+            evt.consume(); // Ignorar el carácter si ya se han introducido 11 caracteres
+        }
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9')
+            evt.consume();
+    }//GEN-LAST:event_fieldciKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
