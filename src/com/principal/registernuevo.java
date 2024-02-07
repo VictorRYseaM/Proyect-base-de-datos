@@ -58,7 +58,7 @@ public class registernuevo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -93,22 +93,22 @@ public class registernuevo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(25, 118, 211));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("X");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("X");
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                jLabel12MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 40, 29));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 40, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Aprendizaje_experimental (1).png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 510, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 520, 440));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 480, 440));
 
         jPanel2.setBackground(new java.awt.Color(25, 118, 211));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -253,9 +253,9 @@ public class registernuevo extends javax.swing.JFrame {
         });
         jPanel2.add(show1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 30, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 440));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 440));
 
-        setSize(new java.awt.Dimension(916, 438));
+        setSize(new java.awt.Dimension(965, 457));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -287,11 +287,6 @@ public class registernuevo extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_formWindowOpened
-
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jLabel11MouseClicked
 
     private void disable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disable2MouseClicked
         // TODO add your handling code here:
@@ -380,6 +375,10 @@ public class registernuevo extends javax.swing.JFrame {
     private void txtusernameMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtusernameMouseReleased
     }//GEN-LAST:event_txtusernameMouseReleased
 
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel12MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -423,7 +422,7 @@ public class registernuevo extends javax.swing.JFrame {
     private javax.swing.JLabel disable;
     private javax.swing.JLabel disable2;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;

@@ -77,8 +77,6 @@ public class loginnuevo extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         disable = new javax.swing.JLabel();
         show = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel11 = new javax.swing.JLabel();
         btninisesion = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -109,7 +107,7 @@ public class loginnuevo extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(25, 118, 211));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("X");
@@ -119,7 +117,7 @@ public class loginnuevo extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 40, 29));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 40, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,18 +206,6 @@ public class loginnuevo extends javax.swing.JFrame {
             }
         });
         jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 216, 40, 40));
-
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(199, 226, 255));
-        jCheckBox1.setText("Remember Password");
-        jPanel2.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 261, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(199, 226, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel11.setText("Forget Password?");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 261, 121, 27));
 
         btninisesion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btninisesion.setForeground(new java.awt.Color(25, 118, 211));
@@ -394,9 +380,7 @@ public class loginnuevo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btninisesion;
     private javax.swing.JLabel disable;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

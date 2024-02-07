@@ -76,6 +76,7 @@ public class dd extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         pacientebtn1 = new javax.swing.JButton();
         viewp = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -293,15 +294,24 @@ public class dd extends javax.swing.JFrame {
         viewp.setBackground(new java.awt.Color(255, 255, 255));
         viewp.setPreferredSize(new java.awt.Dimension(870, 550));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/1.png"))); // NOI18N
+        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 255), 2, true));
+
         javax.swing.GroupLayout viewpLayout = new javax.swing.GroupLayout(viewp);
         viewp.setLayout(viewpLayout);
         viewpLayout.setHorizontalGroup(
             viewpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 890, Short.MAX_VALUE)
+            .addGroup(viewpLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
+                .addContainerGap())
         );
         viewpLayout.setVerticalGroup(
             viewpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewpLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18))
         );
 
         jPanel1.add(viewp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 890, 560));
@@ -411,6 +421,7 @@ public class dd extends javax.swing.JFrame {
     private javax.swing.JLabel correolabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
