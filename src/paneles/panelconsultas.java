@@ -82,9 +82,10 @@ public class panelconsultas extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(5, 80, 155));
 
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("CONSULTAS MÉDICAS");
         jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -105,13 +106,20 @@ public class panelconsultas extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel2.setBackground(new java.awt.Color(25, 117, 209));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/discussion.png"))); // NOI18N
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText(" Nro. Consulta:");
 
+        nrconsulta.setForeground(new java.awt.Color(102, 102, 102));
+        nrconsulta.setText("Ingrese nro de consulta...");
+        nrconsulta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nrconsultaFocusGained(evt);
+            }
+        });
         nrconsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nrconsultaActionPerformed(evt);
@@ -147,16 +155,16 @@ public class panelconsultas extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel3.setBackground(new java.awt.Color(25, 117, 209));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/calendar.png"))); // NOI18N
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Fecha:");
 
-        fecha.setColorBackground(new java.awt.Color(0, 204, 0));
-        fecha.setColorButtonHover(new java.awt.Color(51, 255, 51));
-        fecha.setColorForeground(new java.awt.Color(0, 153, 51));
+        fecha.setColorBackground(new java.awt.Color(0, 51, 153));
+        fecha.setColorButtonHover(new java.awt.Color(0, 153, 255));
+        fecha.setColorForeground(new java.awt.Color(102, 102, 102));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -183,8 +191,15 @@ public class panelconsultas extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel4.setBackground(new java.awt.Color(25, 117, 209));
 
+        cedconsulta.setForeground(new java.awt.Color(102, 102, 102));
+        cedconsulta.setText("Ingrese cédula...");
+        cedconsulta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cedconsultaFocusGained(evt);
+            }
+        });
         cedconsulta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cedconsultaKeyTyped(evt);
@@ -220,8 +235,15 @@ public class panelconsultas extends javax.swing.JPanel {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel5.setBackground(new java.awt.Color(25, 117, 209));
 
+        idmedconsulta.setForeground(new java.awt.Color(102, 102, 102));
+        idmedconsulta.setText("Ingrese ID del médico...");
+        idmedconsulta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                idmedconsultaFocusGained(evt);
+            }
+        });
         idmedconsulta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 idmedconsultaKeyTyped(evt);
@@ -257,7 +279,15 @@ public class panelconsultas extends javax.swing.JPanel {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jPanel6.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel6.setBackground(new java.awt.Color(25, 117, 209));
+
+        diagnosticoconsulta.setForeground(new java.awt.Color(102, 102, 102));
+        diagnosticoconsulta.setText("Ingrese el diágnostico...");
+        diagnosticoconsulta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                diagnosticoconsultaFocusGained(evt);
+            }
+        });
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/diagnosis.png"))); // NOI18N
 
@@ -289,7 +319,15 @@ public class panelconsultas extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel7.setBackground(new java.awt.Color(25, 117, 209));
+
+        recetaconsulta.setForeground(new java.awt.Color(102, 102, 102));
+        recetaconsulta.setText("Ingrese la receta...");
+        recetaconsulta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                recetaconsultaFocusGained(evt);
+            }
+        });
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Receta:");
@@ -321,7 +359,8 @@ public class panelconsultas extends javax.swing.JPanel {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        limpiarconsultas.setBackground(new java.awt.Color(51, 255, 204));
+        limpiarconsultas.setBackground(new java.awt.Color(5, 80, 155));
+        limpiarconsultas.setForeground(new java.awt.Color(255, 255, 255));
         limpiarconsultas.setText("Limpiar");
         limpiarconsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,7 +368,8 @@ public class panelconsultas extends javax.swing.JPanel {
             }
         });
 
-        aceptarconsulta.setBackground(new java.awt.Color(51, 255, 204));
+        aceptarconsulta.setBackground(new java.awt.Color(5, 80, 155));
+        aceptarconsulta.setForeground(new java.awt.Color(255, 255, 255));
         aceptarconsulta.setText("Aceptar");
         aceptarconsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
